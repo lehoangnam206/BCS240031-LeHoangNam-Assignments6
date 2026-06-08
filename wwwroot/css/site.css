@@ -19,6 +19,8 @@ html {
 
 body {
   margin-bottom: 60px;
+  background: #f6f8fb;
+  color: #1f2937;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +30,54 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.page-heading {
+  margin-bottom: 1.5rem;
+}
+
+.home-hero,
+.form-shell,
+.detail-shell,
+.table-shell {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .5rem;
+}
+
+.home-hero {
+  padding: 3rem;
+}
+
+.form-shell,
+.detail-shell {
+  padding: 1.5rem;
+}
+
+.table-shell {
+  overflow: hidden;
+}
+
+.table th a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.table th a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.validation-summary-errors ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .home-hero {
+    padding: 2rem 1.25rem;
+  }
 }

@@ -1,8 +1,14 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Trang chu";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home-hero">
+    <h1 class="display-5 fw-semibold">Website quan ly phong gym</h1>
+    <p class="lead mb-4">Bai tap tong hop CRUD Controller ket hop Layout va Razor View Engine.</p>
+    <a asp-controller="Gym" asp-action="Index" class="btn btn-primary btn-lg">Vao quan ly hoi vien</a>
+</section>
+
+<section class="mt-4">
+    <h2 class="h4">Chu de da chon</h2>
+    <p>Ung dung quan ly danh sach hoi vien phong gym bang du lieu List gia lap trong chuong trinh.</p>
+</section>

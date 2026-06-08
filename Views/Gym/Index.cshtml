@@ -1,0 +1,95 @@
+@model List<GymMember>
+
+@{
+    ViewData["Title"] = "Danh sach hoi vien phong gym";
+    var currentSearch = ViewData["CurrentSearch"] as string;
+    var nameSort = ViewData["NameSort"]?.ToString();
+    var feeSort = ViewData["FeeSort"]?.ToString();
+    var sessionsSort = ViewData["SessionsSort"]?.ToString();
+}
+
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 page-heading">
+    <div>
+        <h1 class="h3 mb-1">Danh sach hoi vien phong gym</h1>
+        <p class="text-muted mb-0">Quan ly thong tin hoi vien, goi tap va so buoi con lai.</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">Them hoi vien</a>
+</div>
+
+@if (TempData["Message"] is not null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Message"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Dong"></button>
+    </div>
+}
+
+<form asp-action="Index" method="get" class="row g-2 mb-4">
+    <div class="col-md-8">
+        <label for="search" class="form-label">Tim kiem</label>
+        <input id="search" name="search" value="@currentSearch" class="form-control" placeholder="Nhap ten, email, so dien thoai hoac goi tap" />
+    </div>
+    <div class="col-md-4 d-flex align-items-end gap-2">
+        <button type="submit" class="btn btn-outline-primary">Tim kiem</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Lam moi</a>
+    </div>
+</form>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-warning">
+        Chua co du lieu hoi vien phu hop.
+    </div>
+}
+else
+{
+    <div class="table-responsive table-shell">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Id</th>
+                    <th>
+                        <a asp-action="Index" asp-route-search="@currentSearch" asp-route-sortOrder="@nameSort">Ho ten</a>
+                    </th>
+                    <th>Email</th>
+                    <th>So dien thoai</th>
+                    <th>Goi tap</th>
+                    <th>
+                        <a asp-action="Index" asp-route-search="@currentSearch" asp-route-sortOrder="@feeSort">Phi thang</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-search="@currentSearch" asp-route-sortOrder="@sessionsSort">So buoi</a>
+                    </th>
+                    <th class="text-end">Chuc nang</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td class="fw-semibold">@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.PackageName</td>
+                        <td>@item.MonthlyFee.ToString("N0") VND</td>
+                        <td>@item.SessionsLeft</td>
+                        <td>
+                            <div class="d-flex justify-content-end gap-2">
+                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">Chi tiet</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">Sua</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Xoa</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        console.log("Trang danh sach phong gym da duoc tai");
+    </script>
+}

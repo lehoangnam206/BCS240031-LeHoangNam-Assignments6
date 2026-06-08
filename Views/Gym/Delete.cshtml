@@ -1,0 +1,41 @@
+@model GymMember
+
+@{
+    ViewData["Title"] = "Xoa hoi vien";
+}
+
+<div class="page-heading">
+    <h1 class="h3 mb-1">Xoa hoi vien</h1>
+    <p class="text-muted mb-0">Xac nhan truoc khi xoa du lieu khoi danh sach.</p>
+</div>
+
+<div class="alert alert-danger">
+    Ban co chac chan muon xoa hoi vien <strong>@Model.Name</strong> khong?
+</div>
+
+<div class="detail-shell">
+    <dl class="row mb-0">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">So dien thoai</dt>
+        <dd class="col-sm-9">@Model.Phone</dd>
+
+        <dt class="col-sm-3">Goi tap</dt>
+        <dd class="col-sm-9">@Model.PackageName</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="mt-3 d-flex gap-2">
+    <button type="submit" class="btn btn-danger">Xac nhan xoa</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Huy</a>
+</form>
+
+@section Scripts {
+    <script>
+        console.log("Trang xac nhan xoa da duoc tai");
+    </script>
+}

@@ -1,0 +1,78 @@
+@model GymMember
+
+@{
+    ViewData["Title"] = "Them hoi vien";
+}
+
+<div class="page-heading">
+    <h1 class="h3 mb-1">Them hoi vien</h1>
+    <p class="text-muted mb-0">Nhap thong tin hoi vien moi cua phong gym.</p>
+</div>
+
+<form asp-action="Create" method="post" class="form-shell">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Phone" class="form-label"></label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="PackageName" class="form-label"></label>
+            <select asp-for="PackageName" class="form-select">
+                <option value="">-- Chon goi tap --</option>
+                <option>Tap tu do</option>
+                <option>PT ca nhan</option>
+                <option>Yoga va Gym</option>
+                <option>Gym theo buoi</option>
+            </select>
+            <span asp-validation-for="PackageName" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="MonthlyFee" class="form-label"></label>
+            <input asp-for="MonthlyFee" class="form-control" type="number" min="1" step="10000" />
+            <span asp-validation-for="MonthlyFee" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="SessionsLeft" class="form-label"></label>
+            <input asp-for="SessionsLeft" class="form-control" type="number" min="0" />
+            <span asp-validation-for="SessionsLeft" class="text-danger small"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="StartDate" class="form-label"></label>
+            <input asp-for="StartDate" class="form-control" type="date" />
+            <span asp-validation-for="StartDate" class="text-danger small"></span>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+        <button type="submit" class="btn btn-primary">Luu hoi vien</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Quay lai</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        console.log("Trang them hoi vien da duoc tai");
+    </script>
+}
