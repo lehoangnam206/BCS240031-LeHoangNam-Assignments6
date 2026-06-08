@@ -5,8 +5,11 @@ Chủ đề đã chọn là Quản lý phòng gym. Ứng dụng ASP.NET Core MVC
 # Hướng dẫn chạy project
 
 cd C:\Users\naml4\MyMvcApp
+
 dotnet restore
+
 dotnet run --urls http://localhost:5202
 
-Sau đó mở trình duyệt tại:
+# Sau đó mở trình duyệt tại:
+
 http://localhost:5202/Gym
