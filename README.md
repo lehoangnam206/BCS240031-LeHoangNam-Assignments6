@@ -1,28 +1,18 @@
-# MyMvcApp - Quan ly phong gym
+# BCS240031-LeHoangNam-Assignments6
 
-## Chu de
+## Ghi chu chu de
 
-Ung dung ASP.NET Core MVC quan ly hoi vien phong gym.
+Chu de da chon la Quan ly phong gym. Ung dung ASP.NET Core MVC quan ly danh sach hoi vien phong gym bang `List<GymMember>` gia lap, gom cac chuc nang: xem danh sach, xem chi tiet, them moi, sua, xoa, tim kiem, sap xep va validation du lieu co ban.
 
-## Chuc nang
-
-- Hien thi danh sach hoi vien tu `List<GymMember>` gia lap.
-- Xem chi tiet hoi vien theo id.
-- Them moi hoi vien bang form GET/POST.
-- Sua thong tin hoi vien bang form GET/POST.
-- Xac nhan xoa hoi vien.
-- Tim kiem va sap xep danh sach.
-- Hien thi thong bao sau khi them, sua, xoa thanh cong.
-- Ap dung layout chung voi `@RenderBody()` va `@RenderSection()`.
-
-## Cach chay
+## Huong dan chay project
 
 ```powershell
+cd C:\Users\naml4\MyMvcApp
 dotnet restore
 dotnet run --urls http://localhost:5202
 ```
 
-Mo trinh duyet tai:
+Sau do mo trinh duyet tai:
 
 ```text
 http://localhost:5202/Gym
